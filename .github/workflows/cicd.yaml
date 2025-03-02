@@ -29,6 +29,20 @@ jobs:
     - name: Aqua Security Trivy
       run: |
         trivy fs --format table -o trivy-fs.html .
+    - name: Official SonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@v5.0.0
+      env:
+        SONAR_TOKEN: ((secrets.SONAR_TOKEN))
+        SONAR_HOST_URL: ((secrets.SONAR_HOST_URL))
+    - name: install jq
+      run: |
+        sudo apt-get update && sudo apt-get install jq -y
+    - name: SonarQube Quality Gate Check
+      uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+      with:
+        scanMetadataReportFile: .scannerwork/report-task.txt
+          
+          
 
           
     
