@@ -40,7 +40,7 @@ jobs:
     - name: SonarQube Quality Gate Check
       uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
       with:
-        scanMetadataReportFile: .scannerwork/report-task.txt
+        scanMetadataReportFile: .scannerwork/report-task.txt #
           
           
 
