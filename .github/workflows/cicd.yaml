@@ -39,6 +39,9 @@ jobs:
         sudo apt-get update && sudo apt-get install jq -y
     - name: SonarQube Quality Gate Check
       uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+      env:
+        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+        SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
       with:
         scanMetadataReportFile: .scannerwork/report-task.txt #
           
