@@ -66,7 +66,12 @@ jobs:
       uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{secrets.KUBECONFIG}}
-          
+    - name: k8s deployment
+      run: |
+         kubectl apply -f deployment-service.yaml -n webapps
+         sleep (5)
+         kubectl get svc -n webapps
+         echo " kubernetes is ready"
     
     
           
