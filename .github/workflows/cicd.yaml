@@ -62,6 +62,12 @@ jobs:
     - name: docker push
       run: |
         docker push vakabinto/boardgame
+    - name: Kubernetes CLI (kubectl)
+      uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: ${{secrets.kubecoonfig}}
+          
+    
     
           
 
